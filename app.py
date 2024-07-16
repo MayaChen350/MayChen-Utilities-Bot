@@ -1,6 +1,7 @@
 # base files
 import discord
 from discord.ext import commands
+from commands.splatoon.view_amiibos import view_amiibos
 import settings
 # from utils import *
 
@@ -33,6 +34,7 @@ def run():
 ################################             
     bot.add_command(edit_amiibo)
     bot.add_command(remove_amiibo)
+    bot.add_command(view_amiibos)
 ################################
     bot.run(settings.DISCORD_API_SECRET, root_logger=True) # type: ignore
 

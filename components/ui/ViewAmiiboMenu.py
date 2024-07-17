@@ -9,5 +9,4 @@ class ViewAmiiboMenu(LeftRightMenu):
 
     async def update_embed(self, interaction : discord.Interaction):
         embed = self.pages[self.page_index].create_embed()
-        embed.clear_fields()
         await interaction.response.edit_message(embed=embed, view=self)

@@ -2,7 +2,7 @@
 
 ### Features
 Splatoon:  
-- [ ] Search weapon category  
+- [ ] Search weapon  
 - [ ] Search weapon category  
 
 Hay Day:  

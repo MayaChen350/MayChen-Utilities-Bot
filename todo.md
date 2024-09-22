@@ -2,8 +2,8 @@
 
 ### Features
 Splatoon:  
-- [ ] Search weapon  
-- [ ] Search weapon category  
+- [ ] Search amiibos by weapon  
+- [ ] Search amiibos by weapon category  
 
 Hay Day:  
 - [ ] Planify a system if possible  

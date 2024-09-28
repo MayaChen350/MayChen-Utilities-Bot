@@ -13,5 +13,6 @@ async def view_amiibos(ctx):
     for l in file:
         amiibo_list.append(Amiibo(line=l))
     file.close()
+    amiibo_list.reverse()
     view = ViewAmiiboMenu(amiibo_list)
     await ctx.send(embed=amiibo_list[0].create_embed(),view=view)

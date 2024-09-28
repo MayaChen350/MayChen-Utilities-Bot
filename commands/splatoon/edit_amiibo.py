@@ -1,3 +1,4 @@
+from typing import Optional
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -46,7 +47,7 @@ async def get_amiibo_name(interaction : discord.Interaction, current: str) -> li
 
 @commands.hybrid_command()
 @app_commands.autocomplete(name=get_amiibo_name,kit_1=veemo,kit_2=veemo,kit_3=veemo,kit_4=veemo,kit_5=veemo)
-async def edit_amiibo(ctx, name: str, kit_1 : str, kit_2: str, kit_3: str, kit_4 : str, kit_5 : str):
+async def edit_amiibo(ctx, name: str, kit_1 : str = "", kit_2: str= "", kit_3: str= "", kit_4 : str= "", kit_5 : str= ""):
     new_amiibo : Amiibo = Amiibo(name=name, kit_1=kit_1, kit_2=kit_2, kit_3=kit_3, kit_4=kit_4, kit_5=kit_5)
 
     file = open("data/splatoon/amiibo_kits", "r")

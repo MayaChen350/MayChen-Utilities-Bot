@@ -1,22 +1,22 @@
 (import discord)
-(import discord.ext.commands [Bot, MissingRequiredArgument])
-(import hyrule [
+(import discord.ext.commands [Bot MissingRequiredArgument])
+;; (import hyrule [doto])
+(require hyrule [doto as->])
+(require macros.core [setup-bot])
 
 (defn run []
-  (setv intents 
-        (setv (. (discord.Intents.all) message_content) True)
-  (setv bot (Bot (:command_prefix "!")))
+  (setv bot (Bot :command_prefix "!"
+                  :intents (do 
+                             (setv intents (discord.Intents.all)) 
+                             (setv intents.message_content True)
+                             intents)))
 
-  (defn :async [bot.event] on_ready []
+  (setup-bot bot
     (doto bot
-      (.wait_until_ready)
-      (.sync (. tree)))
-
-  
-  (defn :async [bot.event] on_command_error [ctx error]
+      .wait_until_ready
+      .tree.sync)
     (ctx.send
       (if (isInstance error MissingRequiredArgument)
         "Parameters are missing"
-        error)))
-
+        error))))
 
